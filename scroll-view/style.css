@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  perspective: 50px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.scroll-view {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 2px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #000;
+  height: 100vh;
+}
+
+.image {
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: -1;
+}
