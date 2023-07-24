@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
-import { DragEvent } from 'react';
+import { DragEvent, useState } from 'react';
 import { css } from '@emotion/react';
+import KanbanCard from './KanbanCard';
+import KanbanNewCard from './KanbanNewCard';
 
 const style = (bgColor: string) => css`
   flex: 1 1;
@@ -26,20 +28,38 @@ const style = (bgColor: string) => css`
 `;
 
 export default function KanbanColumn({
-  children,
   bgColor,
   title,
   setIsDragSource = () => {},
   setIsDragTarget = () => {},
   onDrop = () => {},
+  cardList = [],
+  setDraggedItem,
+  canAddNew = false,
+  onAdd,
+  onRemove,
 }: {
   children?: JSX.Element | JSX.Element[];
   bgColor: string;
   title: string | JSX.Element;
+  onRemove?: (item: { title: string; }) => void;
   setIsDragSource?: (TF: boolean) => void;
   setIsDragTarget?: (TF: boolean) => void;
   onDrop?: (e: DragEvent<HTMLElement>) => void;
+  cardList?: { title: string; status: string }[];
+  setDraggedItem?: (props: { title: string; status: string }) => void;
+  canAddNew?: boolean;
+  onAdd?: (newCard: { title: string; status: string }) => void;
 }) {
+  const [showAdd, setShowAdd] = useState(false);
+  const handleAdd = () => {
+    setShowAdd(true);
+  };
+  const handleSubmit = (title: string) => {
+    onAdd && onAdd({ title, status: new Date().toString() });
+    setShowAdd(false);
+  };
+
   return (
     <section
       // card的dragStart事件会冒泡上来，这样我们就能够设置正确的列为数据源列了
@@ -60,14 +80,43 @@ export default function KanbanColumn({
       }}
       onDragEnd={(e: DragEvent<HTMLElement>) => {
         e.preventDefault();
-        console.log(1);
         setIsDragSource(false);
         setIsDragTarget(false);
       }}
       css={style(bgColor)}
     >
-      <h2>{title}</h2>
-      <ul>{children}</ul>
+      <h2>
+        {title}
+        {canAddNew && (
+          <button
+            css={css`
+              float: right;
+              margin-top: 0.2rem;
+              padding: 0.2rem 0.5rem;
+              border: 0;
+              border-radius: 1rem;
+              height: 1.8rem;
+              line-height: 1rem;
+              font-size: 1rem;
+            `}
+            onClick={handleAdd}
+          >
+            &#8853; 添加新卡片
+          </button>
+        )}
+      </h2>
+      <ul>
+        {showAdd && <KanbanNewCard onSubmit={handleSubmit} />}
+        {cardList.map((props) => (
+          <KanbanCard
+            title={props.title}
+            status={props.status}
+            key={props.title}
+            onDragStart={() => setDraggedItem && setDraggedItem(props)}
+            onRemove={onRemove}
+          />
+        ))}
+      </ul>
     </section>
   );
 }
