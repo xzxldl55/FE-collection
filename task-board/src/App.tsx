@@ -14,21 +14,24 @@ import AdminContext from './AdminContext';
 const DATA_STORE_KEY = 'kanban-data-store';
 
 function App() {
-  const [todoList, setTodoList] = useState([
-    { title: '开发任务-1', status: '2022-05-22 18:15' },
-    { title: '开发任务-3', status: '2023-07-13 13:55' },
-    { title: '开发任务-5', status: '2022-05-22 18:15' },
-    { title: '测试任务-3', status: '2022-05-22 18:15' },
-  ]);
-  const [ongoingList, setOngoingList] = useState([
-    { title: '开发任务-4', status: '2022-05-22 18:15' },
-    { title: '开发任务-6', status: '2022-05-22 18:15' },
-    { title: '测试任务-2', status: '2022-05-22 18:15' },
-  ]);
-  const [doneList, setDoneList] = useState([
-    { title: '开发任务-2', status: '2022-05-22 18:15' },
-    { title: '测试任务-1', status: '2022-05-22 18:15' },
-  ]);
+  const [todoList, setTodoList] = useState<
+    {
+      title: string;
+      status: string;
+    }[]
+  >([]);
+  const [ongoingList, setOngoingList] = useState<
+    {
+      title: string;
+      status: string;
+    }[]
+  >([]);
+  const [doneList, setDoneList] = useState<
+    {
+      title: string;
+      status: string;
+    }[]
+  >([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
