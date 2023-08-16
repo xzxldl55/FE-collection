@@ -2,13 +2,106 @@
   "0 debug pnpm:scope": {
     "selected": 1
   },
-  "1 error pnpm": {
-    "code": "ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND",
+  "1 debug pnpm:package-manifest": {
+    "initial": {},
+    "prefix": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859"
+  },
+  "2 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "/Users/liaodelong/Library/pnpm/store/v3",
+    "virtualStoreDir": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859/node_modules/.pnpm"
+  },
+  "3 debug pnpm:stage": {
+    "prefix": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859",
+    "stage": "resolution_started"
+  },
+  "4 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmmirror.com/create-vite/4.4.1",
+    "wanted": {
+      "dependentId": ".",
+      "name": "create-vite",
+      "rawSpec": "latest"
+    }
+  },
+  "5 debug pnpm:progress": {
+    "packageId": "registry.npmmirror.com/create-vite/4.4.1",
+    "requester": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859",
+    "status": "resolved"
+  },
+  "6 debug pnpm:package-manifest": {
+    "prefix": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859",
+    "updated": {
+      "dependencies": {
+        "create-vite": "^4.4.1"
+      }
+    }
+  },
+  "7 debug pnpm:package-manifest": {
+    "prefix": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859",
+    "updated": {
+      "dependencies": {
+        "create-vite": "^4.4.1"
+      }
+    }
+  },
+  "8 debug pnpm:stage": {
+    "prefix": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859",
+    "stage": "resolution_done"
+  },
+  "9 debug pnpm:stats": {
+    "prefix": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859",
+    "removed": 0
+  },
+  "10 debug pnpm:stage": {
+    "prefix": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859",
+    "stage": "importing_started"
+  },
+  "11 debug pnpm:stats": {
+    "added": 1,
+    "prefix": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859"
+  },
+  "12 debug pnpm:progress": {
+    "packageId": "registry.npmmirror.com/create-vite/4.4.1",
+    "requester": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859",
+    "status": "found_in_store"
+  },
+  "13 debug pnpm:package-import-method": {
+    "method": "hardlink"
+  },
+  "14 debug pnpm:progress": {
+    "method": "hardlink",
+    "requester": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859",
+    "status": "imported",
+    "to": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859/node_modules/.pnpm/registry.npmmirror.com+create-vite@4.4.1/node_modules/create-vite"
+  },
+  "15 debug pnpm:stage": {
+    "prefix": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859",
+    "stage": "importing_done"
+  },
+  "16 debug pnpm:link": {
+    "target": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859/node_modules/.pnpm/registry.npmmirror.com+create-vite@4.4.1/node_modules/create-vite",
+    "link": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859/node_modules/create-vite"
+  },
+  "17 debug pnpm:root": {
+    "added": {
+      "dependencyType": "prod",
+      "id": "registry.npmmirror.com/create-vite/4.4.1",
+      "name": "create-vite",
+      "realName": "create-vite",
+      "version": "4.4.1"
+    },
+    "prefix": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859"
+  },
+  "18 error pnpm": {
+    "errno": -1,
+    "code": "EPERM",
+    "syscall": "chmod",
+    "path": "/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859/node_modules/.pnpm/registry.npmmirror.com+create-vite@4.4.1/node_modules/create-vite/index.js",
     "err": {
       "name": "pnpm",
-      "message": "No package.json (or package.yaml, or package.json5) was found in \"/Users/liaodelong/Project/FE-collection\".",
-      "code": "ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND",
-      "stack": "pnpm: No package.json (or package.yaml, or package.json5) was found in \"/Users/liaodelong/Project/FE-collection\".\n    at readProjectManifest (/opt/homebrew/Cellar/pnpm/7.3.0/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:20853:13)\n    at async Object.readProjectManifestOnly (/opt/homebrew/Cellar/pnpm/7.3.0/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:20857:28)\n    at async readProjectManifestOnly (/opt/homebrew/Cellar/pnpm/7.3.0/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:44020:24)\n    at async Object.handler (/opt/homebrew/Cellar/pnpm/7.3.0/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:179659:24)\n    at async /opt/homebrew/Cellar/pnpm/7.3.0/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:187855:21\n    at async run (/opt/homebrew/Cellar/pnpm/7.3.0/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:187829:34)\n    at async runPnpm (/opt/homebrew/Cellar/pnpm/7.3.0/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:188047:5)\n    at async /opt/homebrew/Cellar/pnpm/7.3.0/libexec/lib/node_modules/pnpm/dist/pnpm.cjs:188039:7"
+      "message": "EPERM: operation not permitted, chmod '/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859/node_modules/.pnpm/registry.npmmirror.com+create-vite@4.4.1/node_modules/create-vite/index.js'",
+      "code": "EPERM",
+      "stack": "pnpm: EPERM: operation not permitted, chmod '/Users/liaodelong/Library/pnpm/store/v3/tmp/dlx-50859/node_modules/.pnpm/registry.npmmirror.com+create-vite@4.4.1/node_modules/create-vite/index.js'"
     }
   }
 }
