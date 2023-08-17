@@ -21,7 +21,7 @@
     border-radius: 10px 10px 0 0;
     background: yellowgreen;
     overflow: hidden;
-    animation: run 1.5s linear forwards;
+    animation: run 1s linear forwards;
 
     &::before {
         position: absolute;
@@ -51,12 +51,15 @@
         transform: translateX(0px);
     }
     7% {
-        transform: translateX(-30px);
+        transform: translateX(-6px);
     }
-    75% {
-        transform: translateX(300px);
+    15% {
+        transform: translateX(16px);
+    }
+    90% {
+        transform: translateX(316px);
     }
     100% {
-        transform: translateX(340px);
+        transform: translateX(326px);
     }
 }
