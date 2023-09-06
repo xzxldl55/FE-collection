@@ -1,5 +1,6 @@
 {
-  "name": "decrator-test",
+  "name": "decorator-test",
+  "description": "装饰器写法学习",
   "private": true,
   "version": "0.0.0",
   "type": "module",
