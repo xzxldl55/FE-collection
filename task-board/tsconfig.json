@@ -23,5 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "allowJs": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "config/*.ts"]
+  "include": [".eslintrc.cjs", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx", "config/*.ts"]
 }

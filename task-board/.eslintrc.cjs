@@ -14,7 +14,7 @@ module.exports = {
     project: true,
     tsconfigRootDir: __dirname,
   },
-  // ignore: ['tsconfig.json'],
+  ignore: ['src/__test__/'],
   plugins: ['react-refresh'],
   rules: {
     'react-refresh/only-export-components': [
