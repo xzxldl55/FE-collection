@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/vite.svg"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Vite App</title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script>
+			function startChoose() {
+				chrome.runtime.sendMessage({ todo: 'start' });
+			}
+
+			document.querySelector('#app').innerHTML = `
+        <div>
+          <h1>简易版刷课</h1>
+          <div class="card">
+            <button id="start-choose">开始刷课</button>
+          </div>
+        </div>
+      `;
+
+			document.getElementById('start-choose').addEventListener('click', function () {
+				startChoose();
+				this.setAttribute('disabled', 'disabled');
+				this.innerHTML = '正在操作';
+			});
+
+      // chrome.runtime.onMessage.addListener(function(request,sender,response){
+      //   //通过匹配接受到消息的todo是否为showPageAction，从而确定当前接受的消息是否是目标消息，
+      //   //如果是，则使插件可以在当前页面使用
+      //   if(request.todo=="showPageAction"){
+      //       chrome.tabs.query({ active:true, currentWindow:true },function(tabs){
+      //           chrome.pageAction.show(tabs[0].id);
+      //       });
+      //   }
+      // });
+		</script>
+	</body>
+</html>
