@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link
+			rel="icon"
+			type="image/svg+xml"
+			href="/vite.svg"
+		/>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Vite + TS</title>
+		<link
+			rel="stylesheet"
+			href="./src/style.css"
+		/>
+	</head>
+	<body>
+    <div class="w-screen h-screen flex flex-col">
+      <!-- 顶部导航栏 -->
+      <header class="w-full py-3 px-5 shadow flex justify-between items-center">
+        <!-- 导航栏左侧主体 -->
+        <div class="relative flex justify-start items-center group">
+          <!-- Logo -->
+          <div class="h-8 mr-4">
+            <img
+              class="w-full h-full"
+              src="./src/assets/logo.jpg"
+              alt=""
+            />
+          </div>
+          <!-- 菜单 -->
+          <ul
+            class="hidden top-full transition bg-white group-hover:block group-hover:absolute group-hover:p-2 group-hover:shadow-md md:flex md:group-hover:flex justify-start items-center md:group-hover:relative md:group-hover:p-0 md:group-hover:shadow-none"
+          >
+            <li class="menu__item on">首页</li>
+            <li class="menu__item">时间轴</li>
+            <li class="menu__item">文章阁</li>
+            <li class="menu__item">巧匠库</li>
+            <li class="menu__item">关于我</li>
+          </ul>
+        </div>
+        <!-- 头像 -->
+        <div class="size-12 rounded-full overflow-hidden md:hover:animate-spin">
+          <img
+            class="w-full h-full"
+            src="./src/assets/1.webp"
+            alt=""
+          />
+        </div>
+      </header>
+      <!-- 主体 -->
+      <article class="flex-1"></article>
+      <!-- 底部 -->
+      <footer class="w-full py-3 px-5 border-t border-gray-100 border-solid flex justify-between items-center">
+        <span class="text-gray-400 text-xs">@copyright xzxldl55</span>
+      </footer>
+    </div>
+		<script
+			type="module"
+			src="/src/main.ts"
+		></script>
+	</body>
+</html>

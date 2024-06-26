@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu__item {
+  @apply overflow-hidden relative px-2 py-1 mx-2 cursor-pointer after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-gray-300 after:-translate-x-full after:transition hover:after:translate-x-0;
+
+  &.on {
+    @apply text-orange-400 font-bold after:translate-x-0;
+  }
+}
