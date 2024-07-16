@@ -26,6 +26,11 @@ export type ColumnKeys =
   | typeof COLUMN_KEY_ONGOING
   | typeof COLUMN_KEY_DONE;
 
+export type Task = {
+  title: string;
+  status: string
+}
+
 export default function KanbanBoard({
   loading = true,
   todoList = [],
@@ -35,21 +40,16 @@ export default function KanbanBoard({
   onRemove,
 }: {
   loading: boolean;
-  todoList: { title: string; status: string }[];
-  ongoingList: { title: string; status: string }[];
-  doneList: { title: string; status: string }[];
+  todoList: Task[];
+  ongoingList: Task[];
+  doneList: Task[];
   onAdd: (
     addColumnKey: ColumnKeys,
-    newCard: {
-      title: string;
-      status: string;
-    }
+    newCard: Task
   ) => void;
   onRemove: (
     removeColumnKey: ColumnKeys,
-    item: {
-      title: string;
-    }
+    item: Task
   ) => void;
 }) {
   const [draggedItem, setDraggedItem] = useState<(typeof todoList)[number]>();

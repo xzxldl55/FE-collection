@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+	@apply w-full h-full;
+}
+
+#app {
+  --light-x: 0px;
+  --light-y: 0px;
+  --card-size: 320px;
+	@apply h-full w-full bg-gray-800 overflow-hidden;
+
+	.card {
+		@apply relative size-[var(--card-size)] bg-[#1c1c1f] border border-white/10 border-solid rounded overflow-hidden;
+
+		.light {
+			@apply opacity-0 absolute w-16 h-16 bg-white blur-2xl left-[var(--light-x)] top-[var(--light-y)] transition;
+
+      &.on {
+        @apply opacity-100;
+      }
+		}
+	}
+}

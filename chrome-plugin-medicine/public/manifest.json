@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "plugin-auto-next",
+  "version": "1.0",
+  "description": "自动下一节课插件",
+  "icons": {
+    "128": "medicine.png",
+    "48": "medicine.png",
+    "16": "medicine.png"
+  },
+  "action": {
+    "default_icon": "medicine.png",
+    "default_title": "自动下一节课",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "tabs",
+    "https://jxfhgc.21tb.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://jxfhgc.21tb.com/*"],
+      "js": ["inject.js"]
+    }
+  ]
+}

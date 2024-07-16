@@ -3,6 +3,7 @@ import { DragEvent, useState } from 'react';
 import { css } from '@emotion/react';
 import KanbanCard from './KanbanCard';
 import KanbanNewCard from './KanbanNewCard';
+import { Task } from './KanbanBoard';
 
 const style = (bgColor: string) => css`
   flex: 1 1;
@@ -42,14 +43,14 @@ export default function KanbanColumn({
   children?: JSX.Element | JSX.Element[];
   bgColor: string;
   title: string | JSX.Element;
-  onRemove?: (item: { title: string; }) => void;
+  onRemove?: (item: Task) => void;
   setIsDragSource?: (TF: boolean) => void;
   setIsDragTarget?: (TF: boolean) => void;
   onDrop?: (e: DragEvent<HTMLElement>) => void;
-  cardList?: { title: string; status: string }[];
-  setDraggedItem?: (props: { title: string; status: string }) => void;
+  cardList?: Task[];
+  setDraggedItem?: (props: Task) => void;
   canAddNew?: boolean;
-  onAdd?: (newCard: { title: string; status: string }) => void;
+  onAdd?: (newCard: Task) => void;
 }) {
   const [showAdd, setShowAdd] = useState(false);
   const handleAdd = () => {

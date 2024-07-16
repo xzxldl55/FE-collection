@@ -1,0 +1,54 @@
+$count: 51;
+
+@function randomNum($max, $min: 0, $u: 1) {
+    @return ($min + random($max)) * $u;
+}
+
+@function randomColor() {
+    @return rgb(randomNum(255), randomNum(255), randomNum(255));
+}
+
+.fall-ul {
+    display: flex;
+    gap: 4px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 640px;
+    height: 420px;
+    list-style: none;
+
+    & .fall-li {
+        flex-shrink: 0;
+        height: 30px;
+        border-radius: 30px;
+        opacity: 0;
+        
+
+        @for $i from 1 to $count {
+            &:nth-child(#{$i}) {
+                // 随机 110 ～ 200 宽度和随机颜色
+                width: #{randomNum(110, 90)}px;
+                background-color: #{randomColor()};
+                // 设定越后面的元素延迟越小，有一个依次坐落的效果
+                animation: fall-down 1s cubic-bezier(.44,.02,.65,1.3) #{50 * ($count - $i) + (random(150) - random(300))}ms forwards;
+            }
+        }
+    }
+}
+
+@keyframes fall-down {
+    0% {
+        transform: translateY(-180px) scale(0.1, 0.3);
+    }
+    20% {
+        transform: translateY(-200px) scale(0.6, 0.3);
+    }
+    75% {
+        transform: translateY(0) scale(0.6, 0.3);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}

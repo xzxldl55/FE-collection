@@ -1,0 +1,67 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+$size: 300px;
+$imageSize: 80px;
+
+#app {
+  width: $size;
+  height: $size;
+  outline: 1px solid #000;
+  border-radius: 50%;
+  list-style-type: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  animation: rotation linear infinite 20s;
+
+  $count: 6;
+  $pDeg: calc(360deg / $count);
+  .item {
+    width: $imageSize;
+    height: $imageSize;
+    position: absolute;
+    margin-top: -40px;
+    transform-origin: center calc($size / 2 + $imageSize / 2);
+    overflow: hidden;
+    border-radius: 50%;
+
+    @for $i from 1 through $count {
+      &:nth-child(#{$i}) {
+        $deg: calc($pDeg * ($i - 1));
+        transform: rotate($deg);
+        img {
+          --initDeg: #{$deg};
+          transform: rotate(-$deg);
+          animation: rotation linear infinite 20s reverse; /* 反着转图片，使其始终保持正的位置 */
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(calc(360deg - var(--initDeg, 0deg))); /* 每张图有一个初始角度，最终状态要复原到初始角度位置所以这里减去这个角度 */
+  }
+}
